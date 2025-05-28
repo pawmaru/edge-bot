@@ -10,7 +10,10 @@ const BOT_ICON_URL = 'https://i.imgur.com/YOUR_ICON.png'; // 任意のアイコ�
 
 // ====== メイン処理 ======
 (async () => {
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
   const page = await browser.newPage();
 
   try {
