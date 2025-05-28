@@ -1,0 +1,24 @@
+{
+  "name": "edge-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawmaru/edge-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pawmaru/edge-bot/issues"
+  },
+  "homepage": "https://github.com/pawmaru/edge-bot#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^24.9.0"
+  }
+}
