@@ -1,9 +1,13 @@
 name: Run Edge Bot
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *' # 5分ごと
+    - cron: '3/5 * * * *'  # 混雑回避のため3分から5分間隔にずらす
+  workflow_dispatch:
+
+concurrency:
+  group: edge-bot
+  cancel-in-progress: false
 
 jobs:
   run-bot:
@@ -20,7 +24,10 @@ jobs:
       - name: Install dependencies
         run: npm install puppeteer
 
+      - name: Debug timestamp
+        run: date
+
       - name: Run bot script
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }} # 🔐 Secretから取得
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: node bot.js
