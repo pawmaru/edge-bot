@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
 const { setTimeout } = require('node:timers/promises');
-const fetch = require('node-fetch'); // Node.js v18未満なら必要
+//const fetch = require('node-fetch'); // Node.js v18未満なら必要
 
 // ====== 設定 ======
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1377135324005666846/dFli8T1c_Mq7ifwlYh-No8rX0YnKHYrs-GzfbTkQs49okODNBos_DHDI5KoKO2ClhZb2'; // 自分のWebhook URLに置き換える
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1377602904868913152/OqQkW1LwYV_U-EfLWZS9wvLg_XQq1Sz5zyvUtzUnLdsX18HqN9dujyugZs-69zC3WA8x'; // 自分のWebhook URLに置き換える
 const MIN_RES_COUNT = 10; // 最低レス数
 const BOT_NAME = 'エッヂ速報Bot';
 const BOT_ICON_URL = 'https://i.imgur.com/YOUR_ICON.png'; // 任意のアイコンURL
