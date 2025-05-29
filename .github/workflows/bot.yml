@@ -1,19 +1,26 @@
 name: Run Edge Bot
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *' # 5分ごと
 
 jobs:
-  run:
+  run-bot:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-      - run: npm install
-      - run: node bot.js
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install puppeteer
+
+      - name: Run bot script
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }} # 🔐 Secretから取得
+        run: node bot.js
